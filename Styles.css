@@ -1,0 +1,238 @@
+/* Importar fuente medieval desde Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #a15f4d;
+  }
+  50% {
+    box-shadow: 0 0 15px #a15f4d;
+  }
+  100% {
+    box-shadow: 0 0 5px #a15f4d;
+  }
+}
+
+/* Fondo global: detrás de todo se muestra negro */
+body {
+  font-family: "MedievalSharp", cursive, serif;
+  background-color: #000000; /* Fondo completamente negro */
+  /* Opcional: Puedes agregar una textura oscura combinada al fondo
+     Descomenta las siguientes líneas si deseas usar la textura sobre el negro:
+     
+  background: url("textures/dark_medieval.jpg") no-repeat center center fixed;
+  background-size: cover;
+  */
+  color: #f7f3e9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Barra lateral fija */
+#sidebar {
+  width: 250px;
+  background-color: #2c2c2c;
+  color: #f7f3e9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 2px solid #5d3327;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Contenedor principal del Story en Twine, ajustado para dejar espacio a la barra lateral */
+#story {
+  margin: 2em 40px 2em 270px; /* margen izquierdo ampliado para el sidebar */
+  max-width: calc(100% - 270px - 40px);
+  padding: 10px;
+}
+
+/* Estilo para los pasajes de Twine */
+.passage {
+  background-color: rgba(30, 30, 30, 0.9);
+  border: 2px solid #5d3327;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5em;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Encabezados con sombra sutil para resaltar el estilo medieval */
+h1, h2, h3, h4 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Botones interactivos para enlaces (compatible con Twine) */
+.button {
+  background-color: #8a4b38;
+  color: #f7f3e9;
+  padding: 10px 20px;
+  border: 3px solid #5d3327;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin: 5px auto;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #a15f4d;
+  border-color: #7b453b;
+  transform: scale(1.05);
+  animation: glow 1s ease-in-out infinite;
+}
+
+.button:active {
+  background-color: #7d3d2b;
+  transform: scale(0.98);
+  animation: none;
+}
+
+/* Estilo para enlaces dentro de los pasajes que no sean botones */
+.passage a {
+  color: #8a4b38;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.passage a:hover {
+  color: #a15f4d;
+}
+
+/* Imagen lateral para acompañar el texto en los pasajes */
+.image-side {
+  float: left;
+  margin: 0 20px 20px 0;
+  max-width: 40%;
+  border: 5px solid #5d3327;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Contenedor tipo "hero" para pasajes destacados con imagen de fondo */
+.hero {
+  width: 100%;
+  height: 400px;
+  background: url("El legado de Paldea/Objetos-legendarios.png") no-repeat center center;
+  background-size: cover;
+  border: 5px double #5d3327;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Estilos para listas con viñetas de estilo medieval */
+ul.medieval-list {
+  list-style: none;
+  padding-left: 40px;
+  animation: fadeIn 1s ease-out;
+}
+
+ul.medieval-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+ul.medieval-list li:before {
+  content: "⚜";  /* Símbolo de fleur-de-lis */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #8a4b38;
+  font-size: 1.2em;
+}
+
+/* Limpiar floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* Contenedor para insertar imágenes de forma destacada */
+.image-box {
+  border: 3px solid #5d3327;       /* Borde con estilo medieval */
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px auto;               /* Espacio superior e inferior y centrado */
+  background-color: rgba(30, 30, 30, 0.8); /* Fondo oscuro semi-transparente */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  max-width: 80%;                  /* Limitar el ancho del contenedor */
+  text-align: center;              /* Centrar la imagen dentro del contenedor */
+  animation: fadeIn 1s ease-out;
+}
+
+/* Asegura que las imagenes dentro del contenedor no excedan el espacio */
+.image-box img {
+  max-width: 100%;
+  border-radius: 5px;
+}/* Contenedor para agrupar los cuadros y mostrarlos en línea */
+.image-container {
+  display: flex;
+  justify-content: center;  /* Centra los cuadros en el contenedor */
+  align-items: flex-start;  /* Alinea los cuadros por la parte superior */
+  gap: 20px;                /* Espacio entre los cuadros */
+  margin: 20px auto;        /* Márgenes verticales y centrado horizontal en el contenedor */
+  max-width: 80%;           /* Ancho máximo del contenedor */
+}
+
+/* Contenedor para insertar imágenes de forma destacada */
+.image-box {
+  border: 3px solid #5d3327;       /* Borde con inspiración medieval */
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(30, 30, 30, 0.8); /* Fondo oscuro semi-transparente */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  flex: 1;                         /* Los cuadros toman espacio proporcionalmente */
+  text-align: center;              /* Centra el contenido interno, como la imagen */
+  animation: fadeIn 1s ease-out;
+}
+
+/* Asegurarse de que las imágenes dentro de los cuadros se ajusten al tamaño */
+.image-box img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+/* Animación fadeIn (si aún no la tienes definida) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
